@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4bakefhcw11x"]
+
+[ext_resource type="Script" uid="uid://c7csfnjvq7vvp" path="res://scenes/menu.gd" id="1_yqeox"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_yqeox")
+
+[node name="UserInfo" type="Label" parent="."]
+offset_right = 720.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 30
+text = "Информация"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 832.0
+offset_right = 640.0
+offset_bottom = 960.0
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
