@@ -36,7 +36,7 @@ func get_user_data(user_id: String):
 	
 	var error = http_request.request(url)
 	if error != OK:
-		firebase_info.tetx = "Ошибка при отправке запроса: " + error
+		firebase_info.text = "Ошибка при отправке запроса: " + error
 
 func _on_user_data_received(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray):
 	if response_code == 200:

@@ -1,6 +1,6 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1746703444
-export_presets.cfg::TextFile::-1::1746701792::0::1::::<><><>0<>0<><>::
+::res://::1746747446
+export_presets.cfg::TextFile::-1::1746747418::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::7169463530419970374::1746515135::1746703446::1::::<><><>0<>0<>fdb5a6eaefedb1d2f828cb2542038c41<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1746515182
 apple1.png::CompressedTexture2D/CompressedTexture2D::1721333529853961925::1746515134::1746515181::1::::<><><>0<>0<>48b021a1ec9f34c72b80f84e73c1bb90<>res://.godot/imported/apple1.png-8942d5e92ab31adc9f36712d311ef3c7.ctex::
@@ -70,5 +70,7 @@ knife_shooter.tscn::PackedScene/PackedScene::9060509568733757981::1746515135::0:
 ::res://elements/target/::1746515135
 target.gd::GDScript/GDScript::2989047630815559997::1746515135::0::1::::Target<>CharacterBody2D<><>0<>0<><>::
 target.tscn::PackedScene/PackedScene::1806465377389059417::1746515135::0::1::::<><><>0<>0<><>::uid://bit6gbricrvs4::::res://elements/target/target.gd<>uid://cy61tdinvfpay::::res://assets/target1.png
-::res://scenes/::1746703387
-game.tscn::PackedScene::6873552982381359803::1746703387::0::1::::<><><>0<>0<><>::uid://d2c8je1qu02x2::::res://elements/knife_shooter/knife_shooter.tscn<>uid://00chrj2mw8u4::::res://elements/target/target.tscn
+::res://scenes/::1746747418
+game.tscn::PackedScene::6873552982381359803::1746747368::0::1::::<><><>0<>0<><>::uid://d2c8je1qu02x2::::res://elements/knife_shooter/knife_shooter.tscn<>uid://00chrj2mw8u4::::res://elements/target/target.tscn
+menu.gd::GDScript::7024115651834278413::1746747418::0::1::::<>Node2D<><>0<>0<><>::
+menu.tscn::PackedScene::6810400286721288931::1746747368::0::1::::<><><>0<>0<><>::uid://c7csfnjvq7vvp::::res://scenes/menu.gd
