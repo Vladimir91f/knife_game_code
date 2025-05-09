@@ -1,3 +1,4 @@
+res://scenes/game.tscn
 res://scenes/menu.tscn
 res://scenes/menu.gd
-res://scenes/game.tscn
+res://scripts/DataManager.gd

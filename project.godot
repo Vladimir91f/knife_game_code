@@ -14,7 +14,7 @@ config/name="godot4-mobile-game-course"
 run/main_scene="uid://c4bakefhcw11x"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://assets/target5.png"
-config/firebase_url="aHR0cHM6Ly9rbmlmZWdhbWV0ZXN0LWRlZmF1bHQtcnRkYi5maXJlYmFzZWlvLmNvbS8="
+config/firebase_url="aHR0cHM6Ly9rbmlmZWdhbWV0ZXN0LWRlZmF1bHQtcnRkYi5maXJlYmFzZWlvLmNvbQ=="
 config/firebase_secret="d3RWR2IzMDdYZ0xycXZ1OFFlb0JQSWM2ZWYyd1piczVXVHgzN2FFUQ=="
 
 [display]
