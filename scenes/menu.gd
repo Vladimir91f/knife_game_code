@@ -5,8 +5,8 @@ extends Node2D
 @onready var firebase_info: Label = $FirebaseInfo
 @onready var http_request: HTTPRequest = $HTTPRequest
 
-const FIREBASE_URL = "https://knifegametest-default-rtdb.firebaseio.com/"
-const FIREBASE_SECRET = "wtVGb307XgLrqvu8QeoBPIc6ef2wZbs5WTx37aEQ"
+var _firebaseUrl: String
+var _firebaseSecret: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,11 +15,14 @@ func _ready() -> void:
 		urlParams.get('user_id') || '';
 	"""
 	var user_id = JavaScriptBridge.eval(js_code, true)
-	user_info.text = "Your UserId: " + str(user_id)
+	user_info.text = "Your user_id: " + str(user_id)
 	
 	#проба HTTP request
 	http_request.request_completed.connect(_on_request_completed)
 	http_request.request("https://api.github.com/repos/godotengine/godot/releases/latest")
+	
+	_firebaseUrl = Marshalls.base64_to_raw(ProjectSettings.get_setting("application/config/firebase_url")).get_string_from_utf8()
+	_firebaseSecret = Marshalls.base64_to_raw(ProjectSettings.get_setting("application/config/firebase_secret")).get_string_from_utf8()
 	
 	get_user_data("user1")
 	#add_user("user2", "Мария", 120)
@@ -32,7 +35,7 @@ func get_user_data(user_id: String):
 	http_request.request_completed.connect(_on_user_data_received)
 
 	# Формируем URL запроса к конкретному пользователю
-	var url = "%s%s.json?auth=%s" % [FIREBASE_URL, user_id, FIREBASE_SECRET]
+	var url = "%s%s.json?auth=%s" % [_firebaseUrl, user_id, _firebaseSecret]
 	
 	var error = http_request.request(url)
 	if error != OK:
@@ -57,7 +60,7 @@ func add_user(user_id: String, name: String, health: int):
 	add_child(http_request)
 	http_request.request_completed.connect(_on_add_user_completed)
 
-	var url = "%s%s.json?auth=%s" % [FIREBASE_URL, user_id, FIREBASE_SECRET]
+	var url = "%s%s.json?auth=%s" % [_firebaseUrl, user_id, _firebaseSecret]
 	var headers = ["Content-Type: application/json"]
 	var data = {
 		"name": name,
@@ -85,7 +88,7 @@ func update_user(user_id: String, updates: Dictionary):
 	add_child(http_request)
 	http_request.request_completed.connect(_on_update_user_completed)
 
-	var url = "%s%s.json?auth=%s" % [FIREBASE_URL, user_id, FIREBASE_SECRET]
+	var url = "%s%s.json?auth=%s" % [_firebaseUrl, user_id, _firebaseSecret]
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify(updates)
 
