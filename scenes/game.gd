@@ -6,9 +6,17 @@ extends Node2D
 var current_health: int = 0
 var dataManager
 var user_id
+var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Создаем и настраиваем таймер
+	timer = Timer.new()
+	timer.wait_time = 10.0  # Интервал 10 секунд
+	timer.autostart = true
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
+	
 	var get_user_id_query = """
 		const urlParams = new URLSearchParams(window.location.search);
 		urlParams.get('user_id') || '';
@@ -20,18 +28,25 @@ func _ready() -> void:
 	dataManager = DataManager.new()
 	dataManager.initialize(self)
 	
+	await make_request()
+
+	health_bar.max_value = max_health
+	health_bar.value = current_health
+
+func make_request():
 	var userData = await dataManager.get_data("users", user_id)
 	if userData:
 		current_health = int(userData['health'])
 
-	health_bar.max_value = max_health
-	health_bar.value = current_health
-	
-	dataManager = DataManager.new()
-	dataManager.initialize(self)
+func _on_timer_timeout():
+	await make_request()
+	update_health_display()
+	print('запрос здоровья...')
+
 
 func update_health_display():
 	health_bar.value = current_health
+
 
 func add_health(amount: int):
 	current_health += amount
