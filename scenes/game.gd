@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func make_request():
 	var userData = await dataManager.get_data("users", user_id)
-	if userData:
+	if userData != null and userData.has("health"):
 		current_health = int(userData['health'])
 
 func _on_timer_timeout():
@@ -56,7 +56,7 @@ func add_health(amount: int):
 	if current_health > max_health:
 		current_health = max_health
 
-	if current_health != 0 and current_health != max_health and user_id != '0':
+	if current_health != 0 and current_health != max_health and user_id != '0' and user_id != null:
 		await dataManager.update_data("users", user_id, {'health': current_health})
 
 	update_health_display()
