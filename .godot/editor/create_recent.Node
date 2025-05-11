@@ -1,4 +1,7 @@
-Node
-Label
-HTTPRequest
 Button
+ProgressBar
+Control
+Label
+TextureProgressBar
+Node
+HTTPRequest

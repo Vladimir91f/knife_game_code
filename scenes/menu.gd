@@ -12,12 +12,9 @@ func _ready() -> void:
 	if(user_id == null):
 		user_info.text = 'User_id ' + str(user_id) +  ' не найден.'
 		return
-
-	var firebaseUrl = Marshalls.base64_to_raw(ProjectSettings.get_setting("application/config/firebase_url")).get_string_from_utf8()
-	var firebaseSecret = Marshalls.base64_to_raw(ProjectSettings.get_setting("application/config/firebase_secret")).get_string_from_utf8()
 	
 	var dataManager = DataManager.new()
-	dataManager.initialize(firebaseUrl, firebaseSecret, self)
+	dataManager.initialize(self)
 	
 	var userData = await dataManager.get_data("users", user_id)
 	if(userData == null):
