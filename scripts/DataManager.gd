@@ -1,11 +1,11 @@
 class_name DataManager extends Node
 
-var _mainNode: Node2D
+var _mainNode
 
 var _firebaseUrl: String
 var _firebaseSecret: String
 
-func initialize(mainNode: Node2D):
+func initialize(mainNode):
 	_firebaseUrl = Marshalls.base64_to_raw(ProjectSettings.get_setting("application/config/firebase_url")).get_string_from_utf8()
 	_firebaseSecret = Marshalls.base64_to_raw(ProjectSettings.get_setting("application/config/firebase_secret")).get_string_from_utf8()
 	_mainNode = mainNode

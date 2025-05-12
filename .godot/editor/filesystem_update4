@@ -1,6 +1,5 @@
+res://elements/ui/hud.tscn
 res://scenes/game.tscn
 res://scenes/menu.tscn
-res://scenes/game.gd
-res://elements/knife_shooter/knife_shooter.gd
-res://scenes/menu.gd
+res://elements/ui/hud.gd
 res://scripts/DataManager.gd

@@ -1,7 +1,7 @@
-extends Node2D
+extends CanvasLayer
 
 @export var max_health: int = 100
-@onready var health_bar: ProgressBar = $Hp/ProgressBar
+@onready var health_bar: ProgressBar = $MarginContainer/VBoxContainer/HBoxContainer/ProgressBar
 
 var current_health: int = 0
 var dataManager
@@ -61,5 +61,6 @@ func add_health(amount: int):
 
 	update_health_display()
 
-func _on_add_health_pressed() -> void:
+
+func _on_button_pressed() -> void:
 	add_health(5)

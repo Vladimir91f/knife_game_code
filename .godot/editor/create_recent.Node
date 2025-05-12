@@ -1,7 +1,12 @@
 Button
 ProgressBar
-Control
+HBoxContainer
 Label
+VBoxContainer
+MarginContainer
+TextureRect
+CanvasLayer
+Control
 TextureProgressBar
 Node
 HTTPRequest
